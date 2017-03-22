@@ -1,15 +1,24 @@
 import React from 'react'
+import Tweet from './Tweet'
+import TweetList from './TweetList'
+
+const tweets = [
+	{
+		id: 0,
+		name: 'Supasate Choochaisri',
+	    username: 'kaizerwing',
+	    tweetText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	}, {
+		id: 1,
+		name: 'Rangsimant Hanwongsa',
+	    username: 'Fakelow',
+	    tweetText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+	}
+
+]
 
 const App = () => (
-  <div className="container">
-    <div className="jumbotron">
-      <h1 style={{ color: '#000' }}>Hello, world!</h1>
-      <p>...</p>
-      <p>
-        <a className="btn btn-primary btn-lg" href="/">Learn more</a>
-      </p>
-    </div>
-  </div>
+  <TweetList tweets={ tweets } />
 )
 
 export default App
