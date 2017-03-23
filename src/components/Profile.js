@@ -12,7 +12,8 @@ class Profile extends Component {
 			numberTweets: props.numberTweets,
 			numberFollower: props.numberFollower,
 			numberFollowing: props.numberFollowing,
-			isFollowing: props.isFollowing
+			isFollowing: props.isFollowing,
+			isOwnProfile: props.isOwnProfile
 		}
 
 		this.toggleFollow = this.toggleFollow.bind(this)
@@ -43,7 +44,7 @@ class Profile extends Component {
 					/>
 
 					{
-						this.state.isOwnProfile
+						this.props.isOwnProfile
 							? null
 							: <ProfileFollow
 								isFollowing={ this.state.isFollowing}
