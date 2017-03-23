@@ -7,57 +7,14 @@ class MainPanel extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			name: "sunnysun",
-			username: "Fakelow",
-			tweets: [
-				// {
-				// 	id: 0,
-				// 	name: 'Supasate Choochaisri',
-				//     username: 'kaizerwing',
-				//     tweetText: 'Lorem ipsum ...'
-				// }, {
-				// 	id: 1,
-				// 	name: 'Rangsimant Hanwongsa',
-				//     username: 'Fakelow',
-				//     tweetText: 'Lorem ipsum ...'
-				// }
-
-			],
+			name: props.name,
+			username: props.username
 		}
-
-	    this.addToTweetList = this.addToTweetList.bind(this)
 	}
 
-	// เป็น Mothod ของ React ทำที่งานด้วยตัวเองไม่จำเป็นต้องเรียกใ้ที่ไหน
-	componentDidMount() {
-		const uri = `http://${config.api.host}:${config.api.port}/api/tweets`
-		const filter = `{ "where": { "username": "${this.state.username}" } }`
-
-		fetch(`${uri}?filter=${filter}`, {
-			mode: 'cors'
-		})
-		.then(response => response.json())
-		.then((tweets) => {
-			this.setState({
-				tweets: tweets
-			})
-		})
-	}
-
-	addToTweetList(tweet) {
-		const tweetWithId = tweet
-		tweetWithId.id = this.state.tweets.length
-
-		this.setState({
-			tweets: [
-				...this.state.tweets,
-				tweetWithId
-			]
-		})
-	}
 
 	render() {
-		const { name, username, tweets } = this.state
+		const { name, username } = this.state
 
 		return (
 			<div className="main-panel">
@@ -65,10 +22,10 @@ class MainPanel extends Component {
 				? <NewTweet
 					name={ name }
 					username={ username }
-					addToTweetList={ this.addToTweetList }
+					addToTweetList={ this.props.addToTweetList }
 				/>
 				: null }
-				<TweetList tweets={ tweets } />
+				<TweetList tweets={ this.props.tweets } />
 			</div>
 		)
 	}
